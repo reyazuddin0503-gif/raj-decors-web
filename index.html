@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Raj Decors | Premium Civil, Interior & Exterior Luxury Spaces in Patna</title>
+    <meta name="description" content="Elevate your living experience with Raj Decors. Patna's premier design agency specializing in luxury civil construction, premium interiors, modern architectures, and turnkey projects.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            lightBg: '#FDFBF7',
+                            lightPrimary: '#D32F2F',
+                            lightSecondary: '#C62828',
+                            lightText: '#111827',
+                            lightMuted: '#6B7280',
+                            darkBg: '#0F172A',
+                            darkCard: '#111827',
+                            darkBorder: '#1E293B',
+                            darkPrimary: '#EF4444',
+                            darkText: '#F9FAFB',
+                            gold: '#D4AF37'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom CSS Links -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="bg-[#FDFBF7] text-[#111827] dark:bg-[#0F172A] dark:text-[#F9FAFB] font-sans transition-colors duration-300 overflow-x-hidden selection:bg-[#D4AF37] selection:text-black">
+    
+    <!-- Loader Screen -->
+    <div id="loader" class="fixed inset-0 z-[100] bg-[#0F172A] flex flex-col justify-center items-center transition-opacity duration-700">
+        <div class="relative flex items-center justify-center mb-4">
+            <div class="w-16 h-16 border-4 border-[#D4AF37] border-t-transparent rounded-full animate-spin"></div>
+            <span class="absolute text-[#D4AF37] font-bold text-xs uppercase tracking-widest">RD</span>
+        </div>
+        <h2 class="text-[#F9FAFB] font-light tracking-[0.3em] uppercase text-sm animate-pulse">Crafting Perfection</h2>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-[#D32F2F] via-[#D4AF37] to-[#EF4444] z-50 transition-all duration-75 w-0"></div>
+
+    <!-- Cursor Glow Element -->
+    <div id="cursor-glow" class="hidden lg:block fixed w-8 h-8 rounded-full border border-[#D4AF37] pointer-events-none z-[99] -translate-x-1/2 -translate-y-1/2 transition-all duration-100 ease-out mix-blend-difference bg-[rgba(212,175,55,0.05)]"></div>
+
+    <!-- Sticky Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-40 transition-all duration-500 backdrop-blur-md bg-[rgba(253,251,247,0.8)] dark:bg-[rgba(15,23,42,0.8)] border-b border-black/[0.05] dark:border-white/[0.05]">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <!-- Appended Premium Logo Section -->
+            <a href="#" class="group flex items-center gap-3" aria-label="Raj Decors Home">
+                <div class="w-12 h-12 flex items-center justify-center overflow-hidden rounded-xl transition-transform duration-300 group-hover:scale-105">
+                    <img src="image.jpeg" alt="Raj Decors Logo" class="w-full h-full object-contain">
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-bold tracking-wider group-hover:text-[#D4AF37] transition-colors duration-300">RAJ DECORS</span>
+                    <span class="text-[9px] uppercase tracking-[0.25em] text-[#6B7280] dark:text-gray-400">Luxury Spaces</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu Links -->
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="#about" class="nav-link relative font-medium text-sm py-2 transition-colors duration-300 hover:text-[#D4AF37]">About</a>
+                <a href="#services" class="nav-link relative font-medium text-sm py-2 transition-colors duration-300 hover:text-[#D4AF37]">Services</a>
+                <a href="#gallery" class="nav-link relative font-medium text-sm py-2 transition-colors duration-300 hover:text-[#D4AF37]">Projects</a>
+                <a href="#process" class="nav-link relative font-medium text-sm py-2 transition-colors duration-300 hover:text-[#D4AF37]">Process</a>
+                <a href="#faq" class="nav-link relative font-medium text-sm py-2 transition-colors duration-300 hover:text-[#D4AF37]">FAQ</a>
+                <a href="#contact" class="nav-link relative font-medium text-sm py-2 transition-colors duration-300 hover:text-[#D4AF37]">Contact</a>
+            </div>
+
+            <!-- Navbar Actions -->
+            <div class="hidden lg:flex items-center gap-4">
+                <!-- Theme Switcher -->
+                <div class="relative">
+                    <button id="theme-btn" class="w-10 h-10 flex items-center justify-center rounded-full bg-black/[0.03] dark:bg-white/[0.05] border border-black/[0.05] dark:border-white/[0.05] text-xl transition-transform duration-300 hover:scale-105" aria-label="Toggle Theme Dropdown">
+                        ☀
+                    </button>
+                    <div id="theme-dropdown" class="absolute right-0 mt-2 w-36 rounded-xl bg-white dark:bg-[#111827] border border-black/[0.08] dark:border-white/[0.08] shadow-xl p-2 hidden transition-all duration-300 opacity-0 transform translate-y-2">
+                        <button data-theme="light" class="w-full flex items-center gap-3 px-3 py-2 text-xs rounded-lg hover:bg-black/[0.05] dark:hover:bg-white/[0.05]"><span>☀</span> Light</button>
+                        <button data-theme="dark" class="w-full flex items-center gap-3 px-3 py-2 text-xs rounded-lg hover:bg-black/[0.05] dark:hover:bg-white/[0.05]"><span>🌙</span> Dark</button>
+                        <button data-theme="system" class="w-full flex items-center gap-3 px-3 py-2 text-xs rounded-lg hover:bg-black/[0.05] dark:hover:bg-white/[0.05]"><span>💻</span> System</button>
+                    </div>
+                </div>
+                <a href="#contact" class="px-6 py-3 border border-[#D4AF37] text-sm font-semibold tracking-wider rounded-xl uppercase transition-all duration-300 hover:bg-[#D4AF37] hover:text-black shadow-lg shadow-amber-500/10 hover:shadow-amber-500/20">Get Quote</a>
+            </div>
+
+            <!-- Mobile Navigation Triggers -->
+            <div class="flex lg:hidden items-center gap-4">
+                <button id="mobile-theme-btn" class="w-10 h-10 flex items-center justify-center rounded-full bg-black/[0.03] dark:bg-white/[0.05] text-lg" aria-label="Quick Toggle Theme">🌙</button>
+                <button id="burger" class="w-10 h-10 flex flex-col items-center justify-center gap-1.5 focus:outline-none" aria-label="Toggle Mobile Menu">
+                    <span class="w-6 h-0.5 bg-current transition-all duration-300 origin-center"></span>
+                    <span class="w-6 h-0.5 bg-current transition-all duration-300"></span>
+                    <span class="w-6 h-0.5 bg-current transition-all duration-300 origin-center"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Drawer Overlay Menu -->
+    <div id="drawer" class="fixed inset-0 z-30 bg-black/50 backdrop-blur-md transition-opacity duration-500 opacity-0 pointer-events-none lg:hidden">
+        <div class="absolute right-0 top-0 h-full w-4/5 max-w-sm bg-[#FDFBF7] dark:bg-[#0F172A] p-8 pt-32 shadow-2xl flex flex-col gap-6 transform translate-x-full transition-transform duration-500">
+            <a href="#about" class="drawer-link text-xl font-semibold tracking-wide border-b border-black/[0.05] dark:border-white/[0.05] pb-2">About</a>
+            <a href="#services" class="drawer-link text-xl font-semibold tracking-wide border-b border-black/[0.05] dark:border-white/[0.05] pb-2">Services</a>
+            <a href="#gallery" class="drawer-link text-xl font-semibold tracking-wide border-b border-black/[0.05] dark:border-white/[0.05] pb-2">Projects</a>
+            <a href="#process" class="drawer-link text-xl font-semibold tracking-wide border-b border-black/[0.05] dark:border-white/[0.05] pb-2">Process</a>
+            <a href="#faq" class="drawer-link text-xl font-semibold tracking-wide border-b border-black/[0.05] dark:border-white/[0.05] pb-2">FAQ</a>
+            <a href="#contact" class="drawer-link text-xl font-semibold tracking-wide border-b border-black/[0.05] dark:border-white/[0.05] pb-2">Contact</a>
+            <a href="#contact" class="mt-8 text-center px-6 py-4 bg-[#D32F2F] dark:bg-[#EF4444] text-white font-semibold rounded-xl tracking-wider uppercase shadow-lg">Get Free Quote</a>
+        </div>
+    </div>
+
+    <!-- Luxury Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
+        <div class="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-[10000ms] scale-105" style="background-image: url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1920');" id="hero-bg"></div>
+        <div class="absolute inset-0 z-1 bg-gradient-to-t from-[#FDFBF7] via-black/60 to-black/80 dark:from-[#0F172A]"></div>
+        
+        <!-- Floating Elements Background Decorative -->
+        <div class="absolute top-1/4 left-1/12 w-72 h-72 bg-gradient-to-br from-[#D4AF37]/10 to-transparent rounded-full blur-3xl animate-float pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/12 w-96 h-96 bg-gradient-to-tl from-[#D32F2F]/10 to-transparent rounded-full blur-3xl animate-float-delayed pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center text-white flex flex-col items-center">
+            <span class="text-xs lg:text-sm font-semibold tracking-[0.4em] text-[#D4AF37] uppercase mb-4 opacity-0 translate-y-4 animate-reveal">Architectural Brilliance</span>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight leading-none mb-6 opacity-0 translate-y-4 animate-reveal-delay-1">
+                We Design <span class="font-bold bg-gradient-to-r from-white via-white to-[#D4AF37] bg-clip-text text-transparent">Your Dreams</span>
+            </h1>
+            <p class="text-sm md:text-base lg:text-lg font-light tracking-wide text-gray-300 max-w-2xl mb-12 opacity-0 translate-y-4 animate-reveal-delay-2">
+                Premium Civil, Interior & Exterior Works in Patna. Turning abstract visions into luxury tangible realities.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center w-full sm:w-auto opacity-0 translate-y-4 animate-reveal-delay-3">
+                <a href="#services" class="px-8 py-4 bg-[#D32F2F] dark:bg-[#EF4444] text-white text-xs lg:text-sm font-semibold uppercase tracking-wider rounded-xl transition-all duration-300 hover:bg-[#C62828] dark:hover:bg-red-500 shadow-xl shadow-red-600/20 hover:scale-105">Explore Services</a>
+                <a href="#contact" class="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs lg:text-sm font-semibold uppercase tracking-wider rounded-xl transition-all duration-300 hover:bg-white hover:text-black hover:scale-105">Get Free Quote</a>
+            </div>
+        </div>
+
+        <!-- Animated Scroll Down -->
+        <a href="#about" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-80 hover:opacity-100 transition-opacity" aria-label="Scroll down to About section">
+            <span class="text-[9px] uppercase tracking-[0.3em] text-gray-400">Scroll</span>
+            <div class="w-5 h-9 border border-gray-400 rounded-full flex justify-center p-1">
+                <div class="w-1 h-2 bg-[#D4AF37] rounded-full animate-scroll-dot"></div>
+            </div>
+        </a>
+    </section>
+
+    <!-- About Company Section -->
+    <section id="about" class="py-24 lg:py-32 relative overflow-hidden section-scroll">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="relative reveal-element">
+                <div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-[#D4AF37]"></div>
+                <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-[#D4AF37]"></div>
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1200" alt="Luxury Architectural Interior Living Room" class="rounded-2xl shadow-2xl transition-transform duration-700 hover:scale-105 w-full object-cover h-[450px]">
+            </div>
+            <div class="flex flex-col justify-center reveal-element">
+                <span class="text-xs font-semibold tracking-[0.3em] text-[#D4AF37] uppercase mb-2">About The Studio</span>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">Pioneering Luxury & Structural Artistry in Patna</h2>
+                <p class="text-sm md:text-base text-[#6B7280] dark:text-gray-400 font-light leading-relaxed mb-6">
+                    For years, Raj Decors has defined upscale interiors, sophisticated structures, and exquisite architectural creations in Bihar. We operate at the convergence of resilient structural civil engineering and premier, cutting-edge interior-exterior styling.
+                </p>
+                <p class="text-sm md:text-base text-[#6B7280] dark:text-gray-400 font-light leading-relaxed mb-8">
+                    Our team converts traditional architectural prints into landmark residences, high-end modular modules, and premium high-durability exterior systems (ACP, HPL, and WPC cladding).
+                </p>
+                <div class="grid grid-cols-2 gap-6 border-t border-black/[0.05] dark:border-white/[0.05] pt-8">
+                    <div>
+                        <h4 class="text-3xl font-bold text-[#D32F2F] dark:text-[#EF4444]">100%</h4>
+                        <p class="text-xs uppercase tracking-wider text-gray-500 mt-1">Turnkey Delivery</p>
+                    </div>
+                    <div>
+                        <h4 class="text-3xl font-bold text-[#D4AF37]">3+ Yrs</h4>
+                        <p class="text-xs uppercase tracking-wider text-gray-500 mt-1">Refining Luxury</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-24 bg-black/[0.01] dark:bg-white/[0.01] border-y border-black/[0.03] dark:border-white/[0.03] relative overflow-hidden reveal-element">
+        <div class="max-w-7xl mx-auto px-6 text-center mb-16">
+            <span class="text-xs font-semibold tracking-[0.3em] text-[#D4AF37] uppercase mb-2 block">Our Philosophy</span>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Why Discerning Clients Choose Raj Decors</h2>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="p-8 bg-white dark:bg-[#111827] rounded-2xl border border-black/[0.05] dark:border-white/[0.05] transition-all duration-300 hover:shadow-xl hover:-translate-y-2 group">
+                <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center text-xl text-[#D32F2F] dark:text-[#EF4444] mb-6 group-hover:scale-110 transition-transform">✦</div>
+                <h3 class="text-lg font-semibold mb-3">Impeccable Craftsmanship</h3>
+                <p class="text-xs md:text-sm text-[#6B7280] dark:text-gray-400 font-light leading-relaxed">We source premium, premium grade structural components and aesthetic fixtures ensuring millimeter precise alignment and pristine surface treatments.</p>
+            </div>
+            <div class="p-8 bg-white dark:bg-[#111827] rounded-2xl border border-black/[0.05] dark:border-white/[0.05] transition-all duration-300 hover:shadow-xl hover:-translate-y-2 group">
+                <div class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center text-xl text-[#D4AF37] mb-6 group-hover:scale-110 transition-transform">💎</div>
+                <h3 class="text-lg font-semibold mb-3">Luxury Tailored Designs</h3>
+                <p class="text-xs md:text-sm text-[#6B7280] dark:text-gray-400 font-light leading-relaxed">No templates. We construct tailor-made spatial planning schemas customized explicitly around the functional priorities and luxury tastes of our clients.</p>
+            </div>
+            <div class="p-8 bg-white dark:bg-[#111827] rounded-2xl border border-black/[0.05] dark:border-white/[0.05] transition-all duration-300 hover:shadow-xl hover:-translate-y-2 group">
+                <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-xl text-blue-500 mb-6 group-hover:scale-110 transition-transform">⚙</div>
+                <h3 class="text-lg font-semibold mb-3">End-to-End Execution</h3>
+                <p class="text-xs md:text-sm text-[#6B7280] dark:text-gray-400 font-light leading-relaxed">From raw masonry structural excavation, plumbing matrix systems down to soft high-end interior furnishing accents, we execute everything stress-free.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Counter Section -->
+    <section class="py-20 bg-gradient-to-br from-[#111827] to-[#0F172A] text-white relative overflow-hidden reveal-element">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+            <div>
+                <span class="block text-4xl lg:text-5xl font-bold text-[#D4AF37] mb-2 counter" data-target="150">0</span>
+                <span class="text-xs uppercase tracking-[0.2em] text-gray-400">Projects Finished</span>
+            </div>
+            <div>
+                <span class="block text-4xl lg:text-5xl font-bold text-white mb-2 counter" data-target="3">0</span>
+                <span class="text-xs uppercase tracking-[0.2em] text-gray-400">Years Experience</span>
+            </div>
+            <div>
+                <span class="block text-4xl lg:text-5xl font-bold text-[#EF4444] mb-2 counter" data-target="45">0</span>
+                <span class="text-xs uppercase tracking-[0.2em] text-gray-400">Design Experts</span>
+            </div>
+            <div>
+                <span class="block text-4xl lg:text-5xl font-bold text-white mb-2 counter" data-target="99">0</span>
+                <span class="text-xs uppercase tracking-[0.2em] text-gray-400">Happy Families</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 lg:py-32 relative overflow-hidden section-scroll">
+        <div class="max-w-7xl mx-auto px-6 text-center mb-20 reveal-element">
+            <span class="text-xs font-semibold tracking-[0.3em] text-[#D4AF37] uppercase mb-2 block">Our Capabilities</span>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Mastering Structural Artistry & Luxury Interactivity</h2>
+            <p class="text-sm text-[#6B7280] dark:text-gray-400 font-light max-w-xl mx-auto">From high-strength foundation engineering to ultra-refined interior architecture, we handle complex premium scale execution.</p>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="service-card group relative p-8 bg-white dark:bg-[#111827] border border-black/[0.05] dark:border-white/[0.05] rounded-2xl transition-all duration-500 overflow-hidden hover:shadow-2xl">
+                <div class="absolute inset-0 bg-gradient-to-br from-[#D32F2F]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="w-12 h-12 rounded-xl bg-black/[0.03] dark:bg-white/[0.03] flex items-center justify-center font-bold text-lg mb-6 group-hover:scale-110 transition-transform duration-300">🏗</div>
+                <h3 class="text-xl font-semibold mb-3 group-hover:text-[#D4AF37] transition-colors">Civil Construction</h3>
+                <p class="text-xs md:text-sm text-[#6B7280] dark:text-gray-400 font-light leading-relaxed">Robust architectural excavation, reinforced framing grids, premium structural columns, masonry works tailored for multi-generational longevity.</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="service-card group relative p-8 bg-white dark:bg-[#111827] border border-black/[0.05] dark:border-white/[0.05] rounded-2xl transition-all duration-500 overflow-hidden hover:shadow-2xl">
+                <div class="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="w-12 h-12 rounded-xl bg-black/[0.03] dark:bg-white/[0.03] flex items-center justify-center font-bold text-lg mb-6 group-hover:scale-110 transition-transform duration-300">🛋</div>
+                <h3 class="text-xl font-semibold mb-3 group-hover:text-[#D4AF37] transition-colors">Interior Design</h3>
+                <p class="text-xs md:text-sm text-[#6B7280] dark:text-gray-400 font-light leading-relaxed">Premium furniture layout schemas, bespoke accent spacing parameters, custom ambient lightning integration, and rich detailed surface finishings.</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="service-card group relative p-8 bg-white dark:bg-[#111827] border border-black/[0.05] dark:border-white/[0.05] rounded-2xl transition-all duration-500 overflow-hidden hover:shadow-2xl">
+                <div class="absolute inset-0 bg-gradient-to-br from-[#D32F2F]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="w-12 h-12 rounded-xl bg-black/[0.03] dark:bg-white/[0.03] flex items-center justify-center font-bold text-lg mb-6 group-hover:scale-110 transition-transform duration-300">🏛</div>
+                <h3 class="text-xl font-semibold mb-3 group-hover:text-[#D4AF37] transition-colors">Exterior Design</h3>
+                <p class="text-xs md:text-sm text-[#6B7280] dark:text-gray-400 font-light leading-relaxed">Stunning elevation configurations, robust compound boundary alignments, premium luxury facade enhancements, and dynamic spatial aesthetics.</p>
+            </div>
+            <!-- Card 4 -->
+            <div class="service-card group relative p-8 bg-white dark:bg-[#111827] border border-black/[0.05] dark:border-white/[0.05] rounded-2xl transition-all duration-500 overflow-hidden hover:shadow-2xl">
+                <div class="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="w-12 h-12 rounded-xl bg-black/[0.03] dark:bg-white/[0.03] flex items-center justify-center font-bold text-lg mb-6 group-hover:scale-110 transition-transform duration-300">📐</div>
+                <h3 class="text-xl font-semibold mb-3 group-hover:text-[#D4AF37] transition-colors">Architecture</h3>
+                <p class="text-xs md:text-sm text-[#6B7280] dark:text-gray-400 font-light leading-relaxed">Millimeter-accurate 2D blue-printing, premium photorealistic 3D structural previews, optimal airflow pathways, and smart sustainable zoning layouts.</p>
+            </div>
+            <!-- Card 5 -->
+            <div class="service-card group relative p-8 bg-white dark:bg-[#111827] border border-black/[0.05] dark:border-white/[0.05] rounded-2xl transition-all duration-500 overflow-hidden hover:shadow-2xl">
+                <div class="absolute inset-0 bg-gradient-to-br from-[#D32F2F]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="w-12 h-12 rounded-xl bg-black/[0.03] dark:bg-white/[0.03] flex items-center justify-center font-bold text-lg mb-6 group-hover:scale-110 transition-transform duration-300">✨</div>
+                <h3 class="text-xl font-semibold mb-3 group-hover:text-[#D4AF37] transition-colors">False Ceiling</h3>
+                <p class="text-xs md:text-sm text-[#6B7280] dark:text-gray-400 font-light leading-relaxed">Designer multi-layered gypsum configurations, precision grid drops, floating shadow profiles, and architectural integrated LED strip styling channels.</p>
+            </div>
+            <!-- Card 6 -->
+            <div class="service-card group relative p-8 bg-white dark:bg-[#111827] border border-black/[0.05] dark:border-white/[0.05] rounded-2xl transition-all duration-500 overflow-hidden hover:shadow-2xl">
+                <div class="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="w-12 h-12 rounded-xl bg-black/[0.03] dark:bg-white/[0.03] flex items-center justify-center font-bold text-lg mb-6 group-hover:scale-110 transition-transform duration-300">🍳</div>
+                <h3 class="text-xl font-semibold mb-3 group-hover:text-[#D4AF37] transition-colors">Modular Kitchen</h3>
+                <p class="text-xs md:text-sm text-[#6B7280] dark:text-gray-400 font-light leading-relaxed">Ergonomic structural counter layouts, luxury slow-closing tandem organizers, custom acrylic cabinetry, heat and stain resistant work surfaces.</p>
+            </div>
+            <!-- Card 7 -->
+            <div class="service-card group relative p-8 bg-white dark:bg-[#111827] border border-black/[0.05] dark:border-white/[0.05] rounded-2xl transition-all duration-500 overflow-hidden hover:shadow-2xl">
+                <div class="absolute inset-0 bg-gradient-to-br from-[#D32F2F]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="w-12 h-12 rounded-xl bg-black/[0.03] dark:bg-white/[0.03] flex items-center justify-center font-bold text-lg mb-6 group-hover:scale-110 transition-transform duration-300">🏢</div>
+                <h3 class="text-xl font-semibold mb-3 group-hover:text-[#D4AF37] transition-colors">ACP & HPL Cladding</h3>
+                <p class="text-xs md:text-sm text-[#6B7280] dark:text-gray-400 font-light leading-relaxed">Weather-resistant aluminium composite and high-pressure laminate configurations, yielding advanced exterior building surfaces.</p>
+            </div>
+            <!-- Card 8 -->
+            <div class="service-card group relative p-8 bg-white dark:bg-[#111827] border border-black/[0.05] dark:border-white/[0.05] rounded-2xl transition-all duration-500 overflow-hidden hover:shadow-2xl">
+                <div class="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="w-12 h-12 rounded-xl bg-black/[0.03] dark:bg-white/[0.03] flex items-center justify-center font-bold text-lg mb-6 group-hover:scale-110 transition-transform duration-300">🪟</div>
+                <div class="absolute right-4 top-4 bg-[#D4AF37] text-black text-[9px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Premium</div>
+                <h3 class="text-xl font-semibold mb-3 group-hover:text-[#D4AF37] transition-colors">Glass & Steel Works</h3>
+                <p class="text-xs md:text-sm text-[#6B7280] dark:text-gray-400 font-light leading-relaxed">Toughened structural glass walls, precision-welded 304/316 grade stainless steel deck railings, and premium minimalist frames.</p>
+            </div>
+            <!-- Card 9 -->
+            <div class="service-card group relative p-8 bg-white dark:bg-[#111827] border border-black/[0.05] dark:border-white/[0.05] rounded-2xl transition-all duration-500 overflow-hidden hover:shadow-2xl">
+                <div class="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="w-12 h-12 rounded-xl bg-black/[0.03] dark:bg-white/[0.03] flex items-center justify-center font-bold text-lg mb-6 group-hover:scale-110 transition-transform duration-300">🪵</div>
+                <h3 class="text-xl font-semibold mb-3 group-hover:text-[#D4AF37] transition-colors">WPC Louvers & PVC Panels</h3>
+                <p class="text-xs md:text-sm text-[#6B7280] dark:text-gray-400 font-light leading-relaxed">Termite-proof, anti-moisture wood plastic composite louvers and high-density interior premium wall panels for refined spatial texturing.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Gallery Section -->
+    <section id="gallery" class="py-24 lg:py-32 bg-black/[0.01] dark:bg-white/[0.01] relative overflow-hidden section-scroll">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-end justify-between mb-16 reveal-element">
+            <div class="mb-6 md:mb-0">
+                <span class="text-xs font-semibold tracking-[0.3em] text-[#D4AF37] uppercase mb-2 block">Our Masterpieces</span>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Luxury Project Portfolios</h2>
+            </div>
+            <!-- Category Filtering Links -->
+            <div class="flex flex-wrap gap-2 text-xs font-semibold tracking-wider uppercase">
+                <button class="gallery-filter-btn px-5 py-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.08] bg-white dark:bg-[#111827] text-[#D4AF37] transition-all" data-filter="all">All Portfolio</button>
+                <button class="gallery-filter-btn px-5 py-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.08] hover:border-[#D4AF37] transition-all" data-filter="civil">Civil</button>
+                <button class="gallery-filter-btn px-5 py-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.08] hover:border-[#D4AF37] transition-all" data-filter="interior">Interior</button>
+                <button class="gallery-filter-btn px-5 py-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.08] hover:border-[#D4AF37] transition-all" data-filter="exterior">Exterior</button>
+                <button class="gallery-filter-btn px-5 py-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.08] hover:border-[#D4AF37] transition-all" data-filter="kitchen">Kitchen</button>
+            </div>
+        </div>
+
+        <!-- Style Premium Grid Layout -->
+        <div id="gallery-grid" class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Item 1 -->
+            <div class="gallery-item overflow-hidden rounded-2xl relative group cursor-pointer aspect-[4/3] shadow-lg border border-black/[0.05] dark:border-white/[0.05]" data-category="interior">
+                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=800" alt="Luxury Interior Living Room Project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6">
+                    <span class="text-[10px] uppercase text-[#D4AF37] tracking-widest mb-1">Luxury Interior</span>
+                    <h4 class="text-white text-lg font-semibold">The Sapphire Villa Lounge</h4>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="gallery-item overflow-hidden rounded-2xl relative group cursor-pointer aspect-[4/3] shadow-lg border border-black/[0.05] dark:border-white/[0.05]" data-category="civil">
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=800" alt="Premium Concrete Structure Engineering" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6">
+                    <span class="text-[10px] uppercase text-[#D4AF37] tracking-widest mb-1">Civil Construction</span>
+                    <h4 class="text-white text-lg font-semibold">Boring Road Commercial Framework</h4>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="gallery-item overflow-hidden rounded-2xl relative group cursor-pointer aspect-[4/3] shadow-lg border border-black/[0.05] dark:border-white/[0.05]" data-category="exterior">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800" alt="Modern Glass Exterior Elevation Cladding" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6">
+                    <span class="text-[10px] uppercase text-[#D4AF37] tracking-widest mb-1">Exterior Design</span>
+                    <h4 class="text-white text-lg font-semibold">Patna Heights Luxury Facade</h4>
+                </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="gallery-item overflow-hidden rounded-2xl relative group cursor-pointer aspect-[4/3] shadow-lg border border-black/[0.05] dark:border-white/[0.05]" data-category="kitchen">
+                <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=800" alt="Luxury Modular Kitchen Hardware" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6">
+                    <span class="text-[10px] uppercase text-[#D4AF37] tracking-widest mb-1">Modular Kitchen</span>
+                    <h4 class="text-white text-lg font-semibold">Minimalist Quartz Kitchen Matrix</h4>
+                </div>
+            </div>
+            <!-- Item 5 -->
+            <div class="gallery-item overflow-hidden rounded-2xl relative group cursor-pointer aspect-[4/3] shadow-lg border border-black/[0.05] dark:border-white/[0.05]" data-category="interior">
+                <img src="https://plus.unsplash.com/premium_photo-1680296669094-bceb08249a7d?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Luxury Master Suite False Ceiling" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6">
+                    <span class="text-[10px] uppercase text-[#D4AF37] tracking-widest mb-1">False Ceiling / Interior</span>
+                    <h4 class="text-white text-lg font-semibold">The Floating Gypsum Master Chamber</h4>
+                </div>
+            </div>
+            <!-- Item 6 -->
+            <div class="gallery-item overflow-hidden rounded-2xl relative group cursor-pointer aspect-[4/3] shadow-lg border border-black/[0.05] dark:border-white/[0.05]" data-category="exterior">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800" alt="Luxury WPC HPL Cladding Exterior Mansion" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6">
+                    <span class="text-[10px] uppercase text-[#D4AF37] tracking-widest mb-1">ACP / HPL Cladding</span>
+                    <h4 class="text-white text-lg font-semibold">Danapur Luxury Estate Exterior</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Execution Process -->
+    <section id="process" class="py-24 lg:py-32 relative overflow-hidden section-scroll">
+        <div class="max-w-7xl mx-auto px-6 text-center mb-20 reveal-element">
+            <span class="text-xs font-semibold tracking-[0.3em] text-[#D4AF37] uppercase mb-2 block">Methodology</span>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight">The Roadmap to Perfection</h2>
+        </div>
+        <div class="max-w-5xl mx-auto px-6 relative flex flex-col gap-12">
+            <!-- Central Line for Desktop -->
+            <div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-black/[0.05] dark:bg-white/[0.05] -translate-x-1/2"></div>
+            
+            <!-- Step 1 -->
+            <div class="relative flex flex-col md:flex-row items-start md:justify-between group reveal-element">
+                <div class="absolute left-6 md:left-1/2 w-4 h-4 rounded-full bg-[#D4AF37] -translate-x-1/2 top-1.5 z-10 border-4 border-[#FDFBF7] dark:border-[#0F172A]"></div>
+                <div class="pl-16 md:pl-0 md:w-[45%] md:text-right">
+                    <span class="text-xs font-bold text-[#D32F2F] dark:text-[#EF4444] uppercase tracking-wider">Phase 01</span>
+                    <h4 class="text-lg font-semibold mt-1 mb-2">Detailed Strategic Briefing</h4>
+                    <p class="text-xs md:text-sm text-[#6B7280] dark:text-gray-400 font-light">We hold absolute immersion discovery consultations, measuring your dimensional space layouts while gathering styling preferences.</p>
+                </div>
+                <div class="hidden md:block w-[45%]"></div>
+            </div>
+            <!-- Step 2 -->
+            <div class="relative flex flex-col md:flex-row items-start md:justify-between group reveal-element">
+                <div class="absolute left-6 md:left-1/2 w-4 h-4 rounded-full bg-[#D32F2F] -translate-x-1/2 top-1.5 z-10 border-4 border-[#FDFBF7] dark:border-[#0F172A]"></div>
+                <div class="hidden md:block w-[45%]"></div>
+                <div class="pl-16 md:pl-0 md:w-[45%] text-left">
+                    <span class="text-xs font-bold text-[#D4AF37] uppercase tracking-wider">Phase 02</span>
+                    <h4 class="text-lg font-semibold mt-1 mb-2">3D Visual Systems & Material Specification</h4>
+                    <p class="text-xs md:text-sm text-[#6B7280] dark:text-gray-400 font-light">Our engineering studio layouts photorealistic luxury matrices mapping out detailed itemized material parameters before procurement.</p>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="relative flex flex-col md:flex-row items-start md:justify-between group reveal-element">
+                <div class="absolute left-6 md:left-1/2 w-4 h-4 rounded-full bg-[#D4AF37] -translate-x-1/2 top-1.5 z-10 border-4 border-[#FDFBF7] dark:border-[#0F172A]"></div>
+                <div class="pl-16 md:pl-0 md:w-[45%] md:text-right">
+                    <span class="text-xs font-bold text-[#D32F2F] dark:text-[#EF4444] uppercase tracking-wider">Phase 03</span>
+                    <h4 class="text-lg font-semibold mt-1 mb-2">Precision Structural Engineering</h4>
+                    <p class="text-xs md:text-sm text-[#6B7280] dark:text-gray-400 font-light">On-site craftsmen initiate structural excavation, concrete layout stabilization, architectural framework alignments, and primary utility matrix setup.</p>
+                </div>
+                <div class="hidden md:block w-[45%]"></div>
+            </div>
+            <!-- Step 4 -->
+            <div class="relative flex flex-col md:flex-row items-start md:justify-between group reveal-element">
+                <div class="absolute left-6 md:left-1/2 w-4 h-4 rounded-full bg-emerald-500 -translate-x-1/2 top-1.5 z-10 border-4 border-[#FDFBF7] dark:border-[#0F172A]"></div>
+                <div class="hidden md:block w-[45%]"></div>
+                <div class="pl-16 md:pl-0 md:w-[45%] text-left">
+                    <span class="text-xs font-bold text-emerald-500 uppercase tracking-wider">Phase 04</span>
+                    <h4 class="text-lg font-semibold mt-1 mb-2">Premium Handover & Fine Finishing</h4>
+                    <p class="text-xs md:text-sm text-[#6B7280] dark:text-gray-400 font-light">Supervised surface corrections, absolute dynamic lighting checks, structural waterproofing reviews, leading to absolute turnkey project signoffs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 lg:py-32 bg-black/[0.01] dark:bg-white/[0.01] overflow-hidden reveal-element">
+        <div class="max-w-7xl mx-auto px-6 text-center mb-16">
+            <span class="text-xs font-semibold tracking-[0.3em] text-[#D4AF37] uppercase mb-2 block">Client Reviews</span>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Endorsements From Premium Homeowners</h2>
+        </div>
+        
+        <!-- Interactive Carousel Wrapper -->
+        <div class="max-w-4xl mx-auto px-6 relative">
+            <div id="testimonial-container" class="relative overflow-hidden w-full h-[320px] sm:h-[240px]">
+                <!-- Slide 1 -->
+                <div class="testimonial-slide absolute top-0 left-0 w-full h-full transition-all duration-500 flex flex-col justify-center items-center text-center px-4">
+                    <div class="flex items-center gap-1 text-[#D4AF37] mb-4 text-sm">★★★★★</div>
+                    <p class="text-base sm:text-lg italic font-light tracking-wide text-gray-700 dark:text-gray-300 max-w-2xl mb-6">"Raj Decors fully transformed our dynamic duplex property at Bailey Road, Patna. Their interior cabinetry integration and pristine gypsum false ceilings look incredibly stunning."</p>
+                    <h5 class="font-semibold text-sm tracking-wider uppercase">Amit K. Sharma</h5>
+                    <span class="text-[10px] uppercase tracking-widest text-gray-400 mt-0.5">Premium Villa Owner</span>
+                </div>
+                <!-- Slide 2 -->
+                <div class="testimonial-slide absolute top-0 left-0 w-full h-full transition-all duration-500 flex flex-col justify-center items-center text-center px-4 translate-x-full opacity-0">
+                    <div class="flex items-center gap-1 text-[#D4AF37] mb-4 text-sm">★★★★★</div>
+                    <p class="text-base sm:text-lg italic font-light tracking-wide text-gray-700 dark:text-gray-300 max-w-2xl mb-6">"The exterior architectural cladding using premium weather-proof HPL louvers was done cleanly. Impeccable structural alignment, timely finish, and total structural transparency throughout."</p>
+                    <h5 class="font-semibold text-sm tracking-wider uppercase">Priyanjali Rai</h5>
+                    <span class="text-[10px] uppercase tracking-widest text-gray-400 mt-0.5">Commercial Developer, Danapur</span>
+                </div>
+            </div>
+            
+            <!-- Controls -->
+            <div class="flex justify-center items-center gap-6 mt-8">
+                <button id="prev-test" class="w-10 h-10 border border-black/10 dark:border-white/10 rounded-full flex items-center justify-center text-sm hover:border-[#D4AF37] transition-colors" aria-label="Previous Testimonial">←</button>
+                <button id="next-test" class="w-10 h-10 border border-black/10 dark:border-white/10 rounded-full flex items-center justify-center text-sm hover:border-[#D4AF37] transition-colors" aria-label="Next Testimonial">→</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animated FAQ Section -->
+    <section id="faq" class="py-24 lg:py-32 relative overflow-hidden section-scroll reveal-element">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-xs font-semibold tracking-[0.3em] text-[#D4AF37] uppercase mb-2 block">Clarifications</span>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Frequently Answered Vectors</h2>
+            </div>
+            
+            <div class="flex flex-col gap-4">
+                <!-- FAQ 1 -->
+                <div class="faq-item border border-black/[0.05] dark:border-white/[0.05] rounded-xl bg-white dark:bg-[#111827] overflow-hidden transition-all duration-300">
+                    <button class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left font-semibold text-sm sm:text-base tracking-wide focus:outline-none">
+                        <span>Does Raj Decors handle the entire procurement of civil structural components?</span>
+                        <span class="faq-icon text-[#D4AF37] transition-transform duration-300 text-lg">+</span>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="px-6 pb-5 text-xs sm:text-sm text-[#6B7280] dark:text-gray-400 font-light leading-relaxed border-t border-black/[0.02] dark:border-white/[0.02] pt-4">
+                            Yes. We provide comprehensive turnkey execution model matrices. We handle premium material vetting, primary heavy machinery arrangements, logistics management, and expert engineering deployments.
+                        </p>
+                    </div>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="faq-item border border-black/[0.05] dark:border-white/[0.05] rounded-xl bg-white dark:bg-[#111827] overflow-hidden transition-all duration-300">
+                    <button class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left font-semibold text-sm sm:text-base tracking-wide focus:outline-none">
+                        <span>Can I customize architectural configurations midway during structural setup?</span>
+                        <span class="faq-icon text-[#D4AF37] transition-transform duration-300 text-lg">+</span>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="px-6 pb-5 text-xs sm:text-sm text-[#6B7280] dark:text-gray-400 font-light leading-relaxed border-t border-black/[0.02] dark:border-white/[0.02] pt-4">
+                            Minor aesthetic adjustment components can be adapted smoothly. However, core load-bearing masonry layout profiles or deep embedded structural columns are fixed securely once approved to maintain maximum architecture validation safety.
+                        </p>
+                    </div>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="faq-item border border-black/[0.05] dark:border-white/[0.05] rounded-xl bg-white dark:bg-[#111827] overflow-hidden transition-all duration-300">
+                    <button class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left font-semibold text-sm sm:text-base tracking-wide focus:outline-none">
+                        <span>What specialized methods ensure long-term exterior water protection?</span>
+                        <span class="faq-icon text-[#D4AF37] transition-transform duration-300 text-lg">+</span>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="px-6 pb-5 text-xs sm:text-sm text-[#6B7280] dark:text-gray-400 font-light leading-relaxed border-t border-black/[0.02] dark:border-white/[0.02] pt-4">
+                            We deploy advanced multi-layered crystalline chemical barriers and elastomeric thermal seal membranes before framing high-end ACP cladding profiles or luxury exterior brick-laying structures.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Contact Section -->
+    <section id="contact" class="py-24 lg:py-32 relative overflow-hidden section-scroll bg-black/[0.01] dark:bg-white/[0.01]">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div class="reveal-element">
+                <span class="text-xs font-semibold tracking-[0.3em] text-[#D4AF37] uppercase mb-2 block">Connect With Us</span>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">Let's Co-create Your Luxury Space</h2>
+                <p class="text-sm md:text-base text-[#6B7280] dark:text-gray-400 font-light leading-relaxed mb-8">
+                    Reach out for premium turnkey layouts, modular designs, structural civil architecture, or commercial property exterior transformations across Patna.
+                </p>
+                
+                <div class="flex flex-col gap-6 mb-8 text-xs sm:text-sm font-medium">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-black/[0.03] dark:bg-white/[0.05] flex items-center justify-center text-base">📍</div>
+                        <div>
+                            <p class="text-gray-400 font-light text-[11px] uppercase tracking-wider">Office Studio</p>
+                            <p class="mt-0.5">Saguna Manpura, Danapur Cantt, Patna, Bihar, India</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-black/[0.03] dark:bg-white/[0.05] flex items-center justify-center text-base">📞</div>
+                        <div>
+                            <p class="text-gray-400 font-light text-[11px] uppercase tracking-wider">Direct Hotline</p>
+                            <a href="tel:+917488309803" class="hover:text-[#D4AF37] mt-0.5 block">+91 7488309803</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Map Container -->
+                <div class="w-full h-64 rounded-2xl overflow-hidden shadow-lg border border-black/[0.05] dark:border-white/[0.05]">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.286773563123!2d85.03870337458517!3d25.62860607743576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed5661ac7982ad%3A0x4c4c2fa241c22d2e!2sSaguna%20-%20Danapur%20Main%20Rd%2C%20Patna%2C%20Danapur%2C%20Bihar%20801503!5e0!3m2!1sen!2sin!4v1784201361858!5m2!1sen!2sin"class="w-full h-full border-none filter contrast-125 dark:invert dark:opacity-80" allowfullscreen="" loading="lazy" aria-label="Raj Decors Location Map"></iframe>
+                </div>
+            </div>
+
+            <!-- Responsive Form Matrix -->
+            <div class="bg-white dark:bg-[#111827] p-8 rounded-3xl border border-black/[0.05] dark:border-white/[0.05] shadow-2xl relative reveal-element">
+                <form id="luxury-contact-form" class="flex flex-col gap-5">
+                    <div>
+                        <label for="form-name" class="block text-[11px] uppercase tracking-wider text-gray-400 mb-1.5 font-semibold">Full Name *</label>
+                        <input type="text" id="form-name" required class="w-full px-4 py-3 rounded-xl border border-black/[0.08] dark:border-white/[0.08] bg-transparent focus:outline-none focus:border-[#D4AF37] transition-all text-sm" placeholder="e.g. Rahul Mishra">
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="form-phone" class="block text-[11px] uppercase tracking-wider text-gray-400 mb-1.5 font-semibold">Phone Number *</label>
+                            <input type="tel" id="form-phone" required class="w-full px-4 py-3 rounded-xl border border-black/[0.08] dark:border-white/[0.08] bg-transparent focus:outline-none focus:border-[#D4AF37] transition-all text-sm" placeholder="e.g. +91 ...">
+                        </div>
+                        <div>
+                            <label for="form-email" class="block text-[11px] uppercase tracking-wider text-gray-400 mb-1.5 font-semibold">Email Address</label>
+                            <input type="email" id="form-email" class="w-full px-4 py-3 rounded-xl border border-black/[0.08] dark:border-white/[0.08] bg-transparent focus:outline-none focus:border-[#D4AF37] transition-all text-sm" placeholder="name@domain.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="form-service" class="block text-[11px] uppercase tracking-wider text-gray-400 mb-1.5 font-semibold">Required Capabilities Matrix *</label>
+                        <select id="form-service" required class="w-full px-4 py-3 rounded-xl border border-black/[0.08] dark:border-white/[0.08] bg-white dark:bg-[#111827] focus:outline-none focus:border-[#D4AF37] transition-all text-sm">
+                            <option value="" disabled selected class="bg-white dark:bg-[#111827] text-gray-400">Select Luxury Service Matrix...</option>
+        <option value="Full Turnkey Luxury Villa/Mansion" class="bg-white dark:bg-[#111827] text-[#111827] dark:text-[#F9FAFB]">Full Turnkey Luxury Villa & Mansion</option>
+        <option value="Luxury Living & Bedrooms Design" class="bg-white dark:bg-[#111827] text-[#111827] dark:text-[#F9FAFB]">Luxury Living Rooms & Master Bedrooms</option>
+        <option value="Bespoke Modular Kitchen Matrix" class="bg-white dark:bg-[#111827] text-[#111827] dark:text-[#F9FAFB]">Bespoke Modular Kitchen Layouts</option>
+        <option value="Modern Premium Washroom & Bathroom" class="bg-white dark:bg-[#111827] text-[#111827] dark:text-[#F9FAFB]">Modern Premium Washrooms & Bathrooms</option>
+        <option value="Smart Commercial Office & Lounge" class="bg-white dark:bg-[#111827] text-[#111827] dark:text-[#F9FAFB]">Smart Commercial Offices & Corporate Lounges</option>
+        <option value="Civil Construction & Heavy Framing" class="bg-white dark:bg-[#111827] text-[#111827] dark:text-[#F9FAFB]">Civil Construction & Heavy Structural Framing</option>
+        <option value="Premium Exterior Facade & Elevation" class="bg-white dark:bg-[#111827] text-[#111827] dark:text-[#F9FAFB]">Premium Exterior Facade & ACP/HPL Elevation</option>
+        <option value="False Ceiling & Advanced Ambient Lighting" class="bg-white dark:bg-[#111827] text-[#111827] dark:text-[#F9FAFB]">Designer False Ceiling & Advanced Ambient Lighting</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="form-message" class="block text-[11px] uppercase tracking-wider text-gray-400 mb-1.5 font-semibold">Project Conceptual Vision *</label>
+                        <textarea id="form-message" required rows="4" class="w-full px-4 py-3 rounded-xl border border-black/[0.08] dark:border-white/[0.08] bg-transparent focus:outline-none focus:border-[#D4AF37] transition-all text-sm resize-none" placeholder="Outline dimensional bounds, scope framework, styling priorities..."></textarea>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+                        <button type="submit" id="submit-email" class="w-full py-3.5 bg-black dark:bg-white text-white dark:text-black font-semibold uppercase tracking-wider text-xs rounded-xl shadow-lg transition-transform hover:-translate-y-0.5 active:translate-y-0">Send Secure Email</button>
+                        <button type="button" id="submit-whatsapp" class="w-full py-3.5 bg-emerald-600 text-white font-semibold uppercase tracking-wider text-xs rounded-xl shadow-lg transition-transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2">
+                            <span>💬</span> WhatsApp Direct
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Footer -->
+    <footer class="bg-[#111827] text-gray-400 border-t border-white/[0.05] py-16 lg:py-24">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+            <div>
+                <span class="text-white font-bold tracking-wider text-lg block mb-4">RAJ DECORS</span>
+                <p class="text-xs font-light leading-relaxed max-w-sm mb-4">Architectural structural development patterns combined with refined elite luxury home styling modules within Bihar, India.</p>
+                <div class="flex gap-4 text-white text-sm">
+                    <a href="https://www.facebook.com/share/1JCmApLqBB/?mibextid=wwXIfr" class="hover:text-[#D4AF37] transition-colors" aria-label="Facebook">FB</a>
+                    <a href="https://www.instagram.com/rajdecors4?igsh=OXQxenkzcnRib2Zk&utm_source=qr" class="hover:text-[#D4AF37] transition-colors" aria-label="Instagram">IG</a>
+                    <a href="https://www.linkedin.com/in/md-reyazuddin-ansari" class="hover:text-[#D4AF37] transition-colors" aria-label="LinkedIn">LN</a>
+                </div>
+            </div>
+            <div>
+                <span class="text-white font-semibold tracking-wider text-xs uppercase block mb-4">Premium Portfolios</span>
+                <div class="grid grid-cols-2 gap-2 text-xs font-light">
+                    <a href="#services" class="hover:text-white transition-colors">Civil Excavation</a>
+                    <a href="#services" class="hover:text-white transition-colors">Interior Architectures</a>
+                    <a href="#services" class="hover:text-white transition-colors">ACP / HPL Cladding</a>
+                    <a href="#services" class="hover:text-white transition-colors">False Ceilings</a>
+                    <a href="#services" class="hover:text-white transition-colors">Modular Modules</a>
+                    <a href="#services" class="hover:text-white transition-colors">Turnkey Systems</a>
+                </div>
+            </div>
+            <div>
+                <span class="text-white font-semibold tracking-wider text-xs uppercase block mb-4">Studio Headquarters</span>
+                <p class="text-xs font-light leading-relaxed mb-1 text-gray-300">Saguna Manpura, Danapur Cantt,</p>
+                <p class="text-xs font-light leading-relaxed mb-4 text-gray-300">Patna, Bihar, India - 801503</p>
+                <p class="text-xs font-light">Inquiries: <a href="mailto:rajdecors4@gmail.com" class="text-white hover:text-[#D4AF37]">rajdecors4@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-light uppercase tracking-wider">
+            <span>&copy; 2026 Raj Decors. All Structural Design Matrix Vested.</span>
+            <span>Designed to Awwwards Premium Benchmark Specifications</span>
+        </div>
+    </footer>
+
+    <!-- Essential Custom Scripts Elements -->
+    <script src="js/theme.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

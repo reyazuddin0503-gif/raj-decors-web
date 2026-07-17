@@ -1,0 +1,40 @@
+/* Fluid Adjustments Across Diverse Viewports Boundaries */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+  .max-w-7xl {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  html {
+    font-size: 18px;
+  }
+  .max-w-7xl {
+    max-width: 1600px;
+  }
+}
+
+@media (min-width: 2560px) {
+  html {
+    font-size: 22px;
+  }
+  .max-w-7xl {
+    max-width: 2200px;
+  }
+}
+
+/* Safe Area Layout Padding Insets Support Matrices */
+@support (padding: env(safe-area-inset-top)) {
+  nav {
+    padding-top: env(safe-area-inset-top);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+  footer {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
